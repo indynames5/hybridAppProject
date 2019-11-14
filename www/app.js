@@ -30,6 +30,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         $('#login').hide();
         $('#regis').hide();
         $('#logout').show();
+        $('#address').show();
 
     } else {
 
@@ -37,6 +38,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         $('#login').show();
         $('#regis').show();
         $('#logout').hide();
+        $('#address').hide();
     }
 
 
@@ -109,7 +111,7 @@ var getMenu = function () {
 }
 var signout = function () {
     firebase.auth().signOut().then(function () {
-        alert("signout success");
+        ons.notification.alert("signout success");
     }).catch(function (error) {
         // An error happened.
     });
@@ -172,6 +174,21 @@ document.addEventListener('init', function (event) {
              setType("")
              $("#content")[0].load("list.html");
          });
+
+    }
+
+    if (page.id === 'addressPage') {
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaW5keW5hbWVzIiwiYSI6ImNrMmtsMnkyYjIzYWYzYm8wZm5uZmV5czEifQ.Mw_IIzb-LKG0PzE3DgZ1Pw';
+        var map = new mapboxgl.Map({
+        container: 'map', 
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-74.50, 40], 
+        zoom: 9 
+    });
+ 
+
+        map.addControl(new mapboxgl.NavigationControl());
 
     }
 
@@ -238,11 +255,16 @@ document.addEventListener('init', function (event) {
             $("#content")[0].load("home.html");
             $("#sidemenu")[0].close();
         });
+        $("#address").click(function () {
+            $("#content")[0].load("address.html");
+            $("#sidemenu")[0].close();
+        });
         $("#logout").click(function () {
             signout()
             $("#content")[0].load("home.html");
             $("#sidemenu")[0].close();
         });
+        
     }
 
 

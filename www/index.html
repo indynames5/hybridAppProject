@@ -8,6 +8,8 @@
     <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <link rel="manifest" href="/manifest.json">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -73,6 +75,8 @@
             margin: 5px;
             width: 90%;
         }
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
 </head>
 
