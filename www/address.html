@@ -1,7 +1,7 @@
 <ons-page id="addressPage">
     <ons-toolbar style="background-color:purple;" modifier=" material transparent">
         <div class="left">
-            <ons-toolbar-button id="backbtn"><i class="fas fa-angle-left" style="color:orange"></i>
+            <ons-toolbar-button id="backFromAddress"><i class="fas fa-angle-left" style="color:orange"></i>
             </ons-toolbar-button>
         </div>
         <div class="center" id="addressToolbar" style="color:orange">
@@ -10,5 +10,8 @@
     </ons-toolbar>
 
     <div id='map'></div>
-
+    <pre id='coordinates' class='coordinates'></pre>
+    <ons-fab id="setAdd" position="bottom right" style="background-color: purple;">
+        <ons-icon icon="md-plus"> </ons-icon>
+      </ons-fab>
 </ons-page>
